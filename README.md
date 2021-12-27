@@ -13,4 +13,4 @@ Todo:
 	- django/react backend
 		- probably react
 		- determine what needs to be saved in backend
-
+		- test
