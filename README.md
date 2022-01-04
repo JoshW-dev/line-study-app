@@ -28,4 +28,18 @@ Actions:
 	- react changes since 2 years ago
 	- wether rented servers are needed
 
+	-prolly do react backend and frontend using mongoose - like IBM-C
+	-host on AWS or horoku
+		-follow AWS documentation for quick setup
+
+	- amazon email API, mailchimp
+	-try typescript instead of javascript? -learning curve but maybe worth it
+	-elastic beanstalk - umbrella for connecting components and deployment
+
+	-coop reqs
+		-react frontend, express backend, mongoose API for front-back comms
+		-deployment: netlify - like horoku but free (probably)
+		-start dev without a database and see if data can just be stored local 
+		-start with just frontend?
+
 - Find react/python library for creating excel sheets from data
