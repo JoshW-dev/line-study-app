@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import LineStudy from './components/lineStudy.jsx';
+import "antd/dist/antd.css";
 
 function App() {
   return (
@@ -9,14 +11,12 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>
+          Stroud Line Study App 
+        </p>
+        
+        <LineStudy data = "testdata" />
+
       </header>
     </div>
   );
