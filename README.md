@@ -14,7 +14,6 @@ Todo:
 		- determine what needs to be saved in backend
 		- if database is needed, use mongo db
 		- mongoose for comms between components
-
 - Deploy webapp
 	- Host on AWS - reac documentation for guide
 	- deploy using netlify

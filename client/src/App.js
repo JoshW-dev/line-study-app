@@ -1,18 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
-import LineStudy from './components/lineStudy.jsx';
+import LineStudy from './components/LineStudy/lineStudy.jsx';
+import Layout from './components/LayoutTest/layout.jsx';
+
 import "antd/dist/antd.css";
-import lineStudyImage from './images/lineStudyTemplate.png'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={lineStudyImage} className="App-logo" alt="logo" />
-        
-        <LineStudy data = "testdata" />
-
+        Line Study Web App Proof of Concept
       </header>
+      
+      <div className='tool-wrapper'>
+      <LineStudy data = "testdata" />
+      </div>
+
     </div>
   );
 }

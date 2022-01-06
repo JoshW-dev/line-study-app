@@ -1,0 +1,16 @@
+.layout-wrapper{
+    background-color: orange;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 300px); 
+    justify-content: center;
+    width: 100%;
+    row-gap: 1.6em;
+    column-gap: 1.6em;
+}
+.layout-component{
+    background-color: red;
+    height: 200px;
+    min-width: 250px;
+
+
+}

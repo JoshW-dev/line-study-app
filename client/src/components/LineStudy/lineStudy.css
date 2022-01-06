@@ -1,0 +1,17 @@
+.line-study-wrapper{
+    background-color: navy;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 300px); 
+    justify-content: center;
+    width: 100%;
+    row-gap: 1.6em;
+    column-gap: 1.6em;
+  }
+  .line-study-component{
+    height: 200px;
+    min-width: 250px;
+      background-color: olivedrab;
+  }
+  .input{
+      width: 80%;
+  }

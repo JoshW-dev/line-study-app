@@ -1,0 +1,12 @@
+.stop-watch{
+    height: 50vh;
+    width: 23vw;
+    background-color: #0d0c1b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.stop-watch-wrapper{
+    background-color: navy;
+}
