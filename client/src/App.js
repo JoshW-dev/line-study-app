@@ -10,10 +10,6 @@ function App() {
       <header className="App-header">
         <img src={lineStudyImage} className="App-logo" alt="logo" />
         
-        <p>
-          Stroud Line Study App 
-        </p>
-        
         <LineStudy data = "testdata" />
 
       </header>
