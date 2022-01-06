@@ -4,7 +4,7 @@
 
 Dec 26 2021
 
-Todo:
+Plan:
 - gather and review requirements
 - optimize requirements
 - design
@@ -87,7 +87,12 @@ Todo:
 	- what would make training to use line studies easier
 
 
-
+### Key Internal Issues
+1. fast events are difficult to track and provide good timestamp
+2. Written notes are prone to spelling mistakes
+3. written notes can have inconsistent naming and formatting convensions 
+4. Transcribing data from paper is annoying and time consuming
+5. Transitioning paper notes is bad
 
 
 ### Done
