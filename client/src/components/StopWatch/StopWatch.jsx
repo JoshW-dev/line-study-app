@@ -7,7 +7,8 @@ function StopWatch() {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  
+
+
   React.useEffect(() => {
     let interval = null;
   
@@ -30,6 +31,8 @@ function StopWatch() {
   
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
+    console.log(time)
+    this.props.sendTime(time)
   };
   
   const handleReset = () => {
