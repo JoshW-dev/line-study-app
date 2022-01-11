@@ -37,6 +37,9 @@
 .tool-wrapper{
   background-color: olive;
 }
+.download-wrapper{
+  background-color: red;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

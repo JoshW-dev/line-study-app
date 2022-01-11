@@ -2,20 +2,26 @@ import React, { useState } from 'react'
 import './lineStudy.css'
 import { Button, Input, Statistic, notification } from 'antd';
 import Stopwatch from '../StopWatch/StopWatch';
+import Download from '../Download/Download';
 
 function LineStudy() {
     const [stopwatchTime, setStopwatchTime] = useState(0)
     const [input, setInput] = useState("")
     const [data, setData] = useState([])
+    const [fileName, setFileName] = useState("testExcelFile")
+    const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
+    
     
     var onClick = () => {
         var newData = { id: 0, value: input }
         setInput("")
         setData([...data, newData]);
     }
-    const setStopWatchTime = (time) => {
+
+    const getStopWatchTime = (time) => {
         console.log("Get stopwatch data")
         console.log(time)
+        setStopwatchTime(time)
     }
     var timerToggle = (e) => {
         console.log(this.state)
@@ -43,8 +49,10 @@ function LineStudy() {
                 <Input className="input" placeholder="Project" />
                 <Input className="input" placeholder="Location" />
             </div>
-            <div className='line-study-component'>Line Study Info</div>
-            <Stopwatch sendTime={setStopWatchTime} />
+            <div className='line-study-component'>Line Study Info
+            <p>{stopwatchTime}</p>
+            </div>
+            <Stopwatch sendTime={getStopWatchTime} />
             {/* data entry */}
             <div className='line-study-component'>
                 <Input placeholder="Input Form" onChange={updateInputField} />
@@ -56,6 +64,7 @@ function LineStudy() {
                     return (<li key={idx}>{d.value}</li>)
                 })}
             </div>
+            <Download apiData={apiData} fileName={fileName} />
         </div>
     )
 }
