@@ -1,7 +1,21 @@
 ## Line study app initial skeleton
 *update this readme as project is developed"
 
+## Todo
+- event tag list
+- project details export info to .xlsx properly
+- Stopwatch functionality
+	- timestamp events
+	- logic for line study details
+- line study details export info to .xlsx properly 
+	- some fields auto populate from stopwatch
+- event status display 
+	- up/down/idle + current speed
+- event status control
+	- Button press will add new event and can change status
+	- buttons (Up/Down, Idle, Speed change, add note)
 
+### plan 
 Dec 26 2021
 
 Plan:
@@ -90,7 +104,7 @@ Plan:
 ### Key Internal Issues
 1. fast events are difficult to track and provide good timestamp
 2. Written notes are prone to spelling mistakes
-3. written notes can have inconsistent naming and formatting convensions 
+3. Written notes can have inconsistent naming and formatting convensions 
 4. Transcribing data from paper is annoying and time consuming
 5. Transitioning paper notes is bad
 
@@ -112,6 +126,6 @@ Plan:
 		- deployment: netlify - like horoku but free (probably)
 		- start dev without a database and see if data can just be stored local 
 		- start with just frontend?
-
+-Build in base functional components
 
 

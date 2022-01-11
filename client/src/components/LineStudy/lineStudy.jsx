@@ -8,14 +8,21 @@ function LineStudy() {
     const [stopwatchTime, setStopwatchTime] = useState(0)
     const [input, setInput] = useState("")
     const [data, setData] = useState([])
+    const [inputTag, setInputTag] = useState("")
+    const [tags, setTags] = useState([])
     const [fileName, setFileName] = useState("testExcelFile")
     const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
-    
-    
-    var onClick = () => {
+
+
+    var onClickData = () => {
         var newData = { id: 0, value: input }
         setInput("")
         setData([...data, newData]);
+    }
+    var onClickTags = () => {
+        var newTag = { id: 0, value: inputTag }
+        setInputTag("")
+        setTags([...tags, newTag]);
     }
 
     const getStopWatchTime = (time) => {
@@ -31,6 +38,10 @@ function LineStudy() {
     var updateInputField = (e) => {
         setInput(e.target.value)
     }
+    var updateTagField = (e) => {
+        setInputTag(e.target.value)
+    }
+    
     var openNotification = () => {
         notification.open({
             message: 'State',
@@ -50,20 +61,32 @@ function LineStudy() {
                 <Input className="input" placeholder="Location" />
             </div>
             <div className='line-study-component'>Line Study Info
-            <p>{stopwatchTime}</p>
+                <p>{stopwatchTime}</p>
             </div>
             <Stopwatch sendTime={getStopWatchTime} />
             {/* data entry */}
             <div className='line-study-component'>
-                <Input placeholder="Input Form" onChange={updateInputField} />
-                <Button onClick={onClick} type="primary">Add Data</Button>
+                <Input placeholder="New Event" onChange={updateInputField} />
+                <Button onClick={onClickData} type="primary">Add Data</Button>
+                {/* data list */}
+                <div className='data-list-wrapper'>
+                    {data.map(function (d, idx) {
+                        return (<li key={idx}>{d.value}</li>)
+                    })}
+                </div>
             </div>
-            {/* data list */}
-            <div className='data-list-wrapper'>
-                {data.map(function (d, idx) {
-                    return (<li key={idx}>{d.value}</li>)
-                })}
+            {/* event tag entry */}
+            <div className='line-study-component'>
+                <Input placeholder="New event tag" onChange={updateTagField} />
+                <Button onClick={onClickTags} type="primary">Add</Button>
+                {/* data list */}
+                <div className='data-list-wrapper'>
+                    {tags.map(function (d, idx) {
+                        return (<li key={idx}>{d.value}</li>)
+                    })}
+                </div>
             </div>
+
             <Download apiData={apiData} fileName={fileName} />
         </div>
     )
