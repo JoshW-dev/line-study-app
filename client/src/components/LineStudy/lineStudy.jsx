@@ -12,16 +12,16 @@ function LineStudy() {
         location: "test location",
         newEvent: ""
     })
-    
+
     const [data, setData] = useState([])
     const [inputTag, setInputTag] = useState("")
     const [tags, setTags] = useState([])
     const [fileName, setFileName] = useState("testExcelFile")
-    const [apiData, setApiData] = useState([{ userId: "test id", title: "test title"}])
+    const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
 
     var onAddEvent = () => {
         var newData = { id: 0, value: inputs.newEvent }
-        setInputs(prevState =>({
+        setInputs(prevState => ({
             ...prevState,
             newEvent: ""
         }))
@@ -44,8 +44,8 @@ function LineStudy() {
         this.openNotification()
     }
     var updateInputState = (e) => {
-        const {name,value} = e.target
-        setInputs(prevState =>({
+        const { name, value } = e.target
+        setInputs(prevState => ({
             ...prevState,
             [name]: value
         }))
@@ -54,7 +54,7 @@ function LineStudy() {
     var updateTagField = (e) => {
         setInputTag(e.target.value)
     }
-    
+
     var openNotification = () => {
         notification.open({
             message: 'State',
@@ -69,17 +69,31 @@ function LineStudy() {
         <div className="line-study-wrapper">
             <div className='line-study-component'>
                 <h3>Project Details</h3>
-                <Input className="input" name ="user" placeholder="User Name" onChange={updateInputState} />
-                <Input className="input" name ="project" placeholder="Project Name" onChange={updateInputState}/>
-                <Input className="input" name ="location" placeholder="Location" onChange={updateInputState}/>
+                <Input className="input" bordered={false} name="user" placeholder="User Name" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="project" placeholder="Project Name" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="location" placeholder="Location" onChange={updateInputState} />
             </div>
             <div className='line-study-component'>Line Study Info
+                <Input className="input" bordered={false} name="lineStudyTitle" placeholder="Line Study title" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="processName" placeholder="Process Name" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="product" placeholder="Product run" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="lineStudyStartTime" placeholder="Line Study Start Time" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="lineStudyEndTime" placeholder="Line Study End Time" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="startingSpeed" placeholder="Starting Speed" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="maxSpeed" placeholder="Max Speed" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="unitStartCount" placeholder="Unit Start Count" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="unitEndCount" placeholder="Unit End Count" onChange={updateInputState} />
+                <Input className="input" bordered={false} name="unitWaste" placeholder="Unit Waste" onChange={updateInputState} />
+
+            </div>
+            <div className='line-study-component'>
                 <p>{stopwatchTime}</p>
             </div>
+
             <Stopwatch sendTime={getStopWatchTime} />
             {/* data entry */}
             <div className='line-study-component'>
-                <Input placeholder="New Event" name ="newEvent" value = {inputs.newEvent} onChange={updateInputState} />
+                <Input placeholder="New Event" name="newEvent" value={inputs.newEvent} onChange={updateInputState} />
                 <Button onClick={onAddEvent} type="primary">Add Data</Button>
                 {/* data list */}
                 <div className='data-list-wrapper'>

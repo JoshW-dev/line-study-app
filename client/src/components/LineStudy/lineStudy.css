@@ -8,9 +8,9 @@
     column-gap: 1.6em;
   }
   .line-study-component{
-    height: 200px;
+    min-height: 20vh;
     min-width: 250px;
-      background-color: olivedrab;
+    background-color: #ffce47;
   }
   .input{
       width: 80%;
