@@ -10,7 +10,8 @@ function LineStudy() {
         user: "test user",
         project: "test project name",
         location: "test location",
-        newEvent: ""
+        newEvent: "",
+        newTag: "Other"
     })
 
     const [data, setData] = useState([])
@@ -28,9 +29,7 @@ function LineStudy() {
         setData([...data, newData]);
     }
     var onClickTags = () => {
-        var newTag = { id: 0, value: inputTag }
-        setInputTag("")
-        setTags([...tags, newTag]);
+        setTags([...tags, inputs.newTag]);
     }
 
     const getStopWatchTime = (time) => {
@@ -93,7 +92,7 @@ function LineStudy() {
             <Stopwatch sendTime={getStopWatchTime} />
             {/* data entry */}
             <div className='line-study-component'>
-                <Input placeholder="New Event" name="newEvent" value={inputs.newEvent} onChange={updateInputState} />
+                <Input className="input" bordered={false} placeholder="New Event" name="newEvent" value={inputs.newEvent} onChange={updateInputState} />
                 <Button onClick={onAddEvent} type="primary">Add Data</Button>
                 {/* data list */}
                 <div className='data-list-wrapper'>
@@ -105,11 +104,13 @@ function LineStudy() {
             {/* event tag entry */}
             <div className='line-study-component'>
                 <Input placeholder="New event tag" onChange={updateTagField} />
+                <Input className="input" bordered={false} name="newTag" placeholder="New event tag" value={inputs.newTag} onChange={updateInputState} />
+
                 <Button onClick={onClickTags} type="primary">Add</Button>
                 {/* data list */}
                 <div className='data-list-wrapper'>
-                    {tags.map(function (d, idx) {
-                        return (<li key={idx}>{d.value}</li>)
+                    {tags.map(function (d) {
+                        return (<li>{d}</li>)
                     })}
                 </div>
             </div>
