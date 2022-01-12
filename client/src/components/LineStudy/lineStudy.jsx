@@ -6,7 +6,6 @@ import Download from '../Download/Download';
 
 function LineStudy() {
     const [stopwatchTime, setStopwatchTime] = useState(0)
-    const [input, setInput] = useState("")
     const [inputs, setInputs] = useState({
         user: "test user",
         project: "test project name",
@@ -18,7 +17,7 @@ function LineStudy() {
     const [inputTag, setInputTag] = useState("")
     const [tags, setTags] = useState([])
     const [fileName, setFileName] = useState("testExcelFile")
-    const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
+    const [apiData, setApiData] = useState([{ userId: "test id", title: "test title"}])
 
     var onAddEvent = () => {
         var newData = { id: 0, value: inputs.newEvent }
@@ -43,9 +42,6 @@ function LineStudy() {
         console.log(this.state)
         this.setState({ timerToggle: !this.state.timerToggle })
         this.openNotification()
-    }
-    var updateInputField = (e) => {
-        setInput(e.target.value)
     }
     var updateInputState = (e) => {
         const {name,value} = e.target
@@ -103,8 +99,7 @@ function LineStudy() {
                     })}
                 </div>
             </div>
-
-            <Download apiData={apiData} fileName={fileName} />
+            <Download apiData={apiData} inputs={inputs} fileName={fileName} />
         </div>
     )
 }

@@ -3,10 +3,13 @@ import * as FileSaver from "file-saver";
 import * as XLSX from "xlsx";
 
 
-export const Download = ({ apiData, fileName }) => {
+export const Download = ({ apiData, inputs, fileName }) => {
   const fileType =
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
   const fileExtension = ".xlsx";
+
+  //add input field data
+  apiData = [...apiData, inputs]
 
   const exportToCSV = (apiData, fileName) => {
     const ws = XLSX.utils.json_to_sheet(apiData);
