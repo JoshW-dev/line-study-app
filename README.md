@@ -2,7 +2,6 @@
 *update this readme as project is developed"
 
 ## Todo
-- event tag list
 - project details export info to .xlsx properly
 - Stopwatch functionality
 	- timestamp events
