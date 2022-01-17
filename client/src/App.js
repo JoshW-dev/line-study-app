@@ -1,6 +1,5 @@
 import './App.css';
 import LineStudy from './components/LineStudy/lineStudy.jsx';
-import Layout from './components/LayoutTest/layout.jsx';
 
 import "antd/dist/antd.css";
 
@@ -12,7 +11,7 @@ function App() {
       </header>
       
       <div className='tool-wrapper'>
-      <LineStudy data = "testdata" />
+        <LineStudy data = "testdata" />
       </div>
 
     </div>

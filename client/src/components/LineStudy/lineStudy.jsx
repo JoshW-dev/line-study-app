@@ -3,6 +3,7 @@ import './lineStudy.css'
 import { Button, Input, Statistic, notification } from 'antd';
 import Stopwatch from '../StopWatch/StopWatch';
 import Download from '../Download/Download';
+import EventButtons from '../EventButtons/eventButtons'
 
 function LineStudy() {
     const [stopwatchTime, setStopwatchTime] = useState(0)
@@ -15,7 +16,8 @@ function LineStudy() {
     })
 
     const [data, setData] = useState([])
-    const [inputTag, setInputTag] = useState("")
+    const [status, setStatus] = useState({ state: "Up", speed: 20 })
+    //status includes current state of process (up/down/idle) and current speed
     const [tags, setTags] = useState([])
     const [fileName, setFileName] = useState("testExcelFile")
     const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
@@ -37,6 +39,10 @@ function LineStudy() {
         console.log(time)
         setStopwatchTime(time)
     }
+    const getProcessStatus = (data) => {
+        console.log(data)
+    }
+
     var timerToggle = (e) => {
         console.log(this.state)
         this.setState({ timerToggle: !this.state.timerToggle })
@@ -49,11 +55,6 @@ function LineStudy() {
             [name]: value
         }))
     }
-
-    var updateTagField = (e) => {
-        setInputTag(e.target.value)
-    }
-
     var openNotification = () => {
         notification.open({
             message: 'State',
@@ -85,11 +86,23 @@ function LineStudy() {
                 <Input className="input" bordered={false} name="unitWaste" placeholder="Unit Waste" onChange={updateInputState} />
 
             </div>
+
+            {/* event tag entry */}
             <div className='line-study-component'>
-                <p>{stopwatchTime}</p>
+                <Input className="input" bordered={false} name="newTag" placeholder="New event tag" value={inputs.newTag} onChange={updateInputState} />
+                <Button onClick={onClickTags} type="primary">Add</Button>
+                {/* data list */}
+                <div className='data-list-wrapper'>
+                    {tags.map(function (d) {
+                        return (<li>{d}</li>)
+                    })}
+                </div>
+            </div>
+            <Stopwatch sendTime={getStopWatchTime} />
+            <div className='line-study-component'>
+                <EventButtons currentStatus ={status} sendProcessStatus = {getProcessStatus}/>
             </div>
 
-            <Stopwatch sendTime={getStopWatchTime} />
             {/* data entry */}
             <div className='line-study-component'>
                 <Input className="input" bordered={false} placeholder="New Event" name="newEvent" value={inputs.newEvent} onChange={updateInputState} />
@@ -101,18 +114,8 @@ function LineStudy() {
                     })}
                 </div>
             </div>
-            {/* event tag entry */}
             <div className='line-study-component'>
-                <Input placeholder="New event tag" onChange={updateTagField} />
-                <Input className="input" bordered={false} name="newTag" placeholder="New event tag" value={inputs.newTag} onChange={updateInputState} />
-
-                <Button onClick={onClickTags} type="primary">Add</Button>
-                {/* data list */}
-                <div className='data-list-wrapper'>
-                    {tags.map(function (d) {
-                        return (<li>{d}</li>)
-                    })}
-                </div>
+                <p>{stopwatchTime}</p>
             </div>
             <Download apiData={apiData} inputs={inputs} fileName={fileName} />
         </div>

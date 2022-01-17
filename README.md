@@ -2,7 +2,8 @@
 *update this readme as project is developed"
 
 ## Todo
-- project details export info to .xlsx properly
+
+
 - Stopwatch functionality
 	- timestamp events
 	- logic for line study details
@@ -14,13 +15,15 @@
 	- Button press will add new event and can change status
 	- buttons (Up/Down, Idle, Speed change, add note)
 
+
+
 ### plan 
 Dec 26 2021
 
 Plan:
 - gather and review requirements
 - optimize requirements
-- design
+- design - https://proto.io/
 - Create web app skeleton
 	- reactJS frontend
 	- Express backend
@@ -125,6 +128,8 @@ Plan:
 		- deployment: netlify - like horoku but free (probably)
 		- start dev without a database and see if data can just be stored local 
 		- start with just frontend?
--Build in base functional components
+- Build in base functional components
+- project details export info to .xlsx properly
+
 
 
