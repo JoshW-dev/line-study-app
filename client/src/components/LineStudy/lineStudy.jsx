@@ -41,8 +41,8 @@ function LineStudy() {
 
         let newEvent = {
             type: type,
-            //get start time from stopwatch
-            start: 0,
+            //get start time from lineStudyStartTime vs now (ms)
+            start: Date.now()-inputs.lineStudyStartTime,
             //get end time and duration from previous event 
             end: 0,
             duration: 0,
