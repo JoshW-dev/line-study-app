@@ -16,7 +16,7 @@ function LineStudy() {
         newTag: "Other"
     })
 
-    const [data, setData] = useState([])
+    const [data, setData] = useState([])//deprecate
     const [status, setStatus] = useState({ state: "Up", speed: 20 })
     //status includes current state of process (up/down/idle) and current speed
     const [tags, setTags] = useState([])
@@ -163,7 +163,7 @@ function LineStudy() {
             </div>
                     
         </div>
-        <EventsTable/>
+        <EventsTable events ={events}/>
         <Download apiData={apiData} inputs={inputs} fileName={fileName} />
             
         </div>

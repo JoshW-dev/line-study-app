@@ -1,44 +1,52 @@
 import React, { useState } from "react";
 import { Table } from 'antd';
-function EventsTable() {
-    const dataSource = [
-        {
-          key: '1',
-          name: 'Mike',
-          age: 32,
-          address: '10 Downing Street',
-        },
-        {
-          key: '2',
-          name: 'John',
-          age: 42,
-          address: '10 Downing Street',
-        },
-      ];
+function EventsTable(params) {
+    const dataSource = params.events;
+
     const columns = [
         {
-          title: 'Name',
-          dataIndex: 'name',
-          key: 'name',
+            title: 'Type',
+            dataIndex: 'type',
+            key: 'type',
         },
         {
-          title: 'Age',
-          dataIndex: 'age',
-          key: 'age',
+            title: 'Start',
+            dataIndex: 'start',
+            key: 'start',
         },
         {
-          title: 'Address',
-          dataIndex: 'address',
-          key: 'address',
+            title: 'End',
+            dataIndex: 'end',
+            key: 'end',
         },
-      ];  
-  return (
-    <div >
-        <h3>Events List</h3>
-        <Table dataSource={dataSource} columns={columns} />;
+        {
+            title: 'Duration',
+            dataIndex: 'duration',
+            key: 'duration',
+        },
+        {
+            title: 'Tag',
+            dataIndex: 'tag',
+            key: 'tag',
+          },
+        {
+            title: 'Speed',
+            dataIndex: 'speed',
+            key: 'speed',
+        },
+        {
+            title: 'Notes',
+            dataIndex: 'notes',
+            key: 'notes',
+          },
+    ];
+    return (
+        <div >
+            <h3>Events List</h3>
+            <Table dataSource={dataSource} columns={columns} />;
 
-    </div>
-  );
+        </div>
+    );
 }
-  
+
 export default EventsTable;
