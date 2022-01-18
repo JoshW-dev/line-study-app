@@ -2,26 +2,6 @@ import React from "react";
 import "./ControlButtons.css";
 
 export default function ControlButtons(props) {
-  const StartButton = (
-    <div className="btn btn-one btn-start"
-      onClick={props.handleStart}>
-      Start
-    </div>
-
-  );
-  const StartButtons = (
-    <div className="btn-grp">
-      <div className="btn btn-one btn-start"
-        onClick={props.handleStart}>
-        Start
-      </div>
-      <div className="btn btn-two"
-        onClick={props.handleReset}>
-        Reset
-      </div>
-    </div>
-  )
-
   const UnpausedButtons = (
     <div className="btn-grp">
       <div className="btn btn-one"

@@ -6,11 +6,13 @@
 - create events list
 	- timestamp events start properly
 	- calculate stop time and duration logic
+
 	- make all entries editable
 	- make event tags apear as dropdown for easy tagging
 - complete stopwatch functionality
-	- start line study on stopwatch start
-	- add lap functionality
+	- start line study on stopwatch start - done
+	- add lap functionality - done
+	- send timer data on event create
 
 - Design layout better
 	- ensure proper scaling and grid layout of all compoenents

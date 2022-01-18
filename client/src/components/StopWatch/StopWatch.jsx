@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./StopWatch.css";
 import Timer from "../Timer/Timer";
 import ControlButtons from "../ControlButtons/ControlButtons";
@@ -8,12 +8,13 @@ function StopWatch(params) {
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
   const [laps, setLaps] = useState([0]);//first lap always starts at 0
-  React.useEffect(() => {
+  useEffect(() => {
+    params.sendStopWatchTime.current = handleSendTime
+    params.childFunc.current = handleStart
     let interval = null;
-
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
-        setTime((time) => time + 10);
+        setTime((prevTime) => prevTime + 10);
       }, 10);
     } else {
       clearInterval(interval);
@@ -23,6 +24,12 @@ function StopWatch(params) {
     };
   }, [isActive, isPaused]);
 
+  //effect hook for sending stopwatch data to parent linestudy on eventCreate
+  const handleSendTime = () => {
+    var curTime = time
+    console.log(curTime)
+    params.sendTime(time)    
+  };
   const handleStart = () => {
     setIsActive(true);
     setIsPaused(false);
@@ -33,7 +40,7 @@ function StopWatch(params) {
       setIsActive(true)
     }
     setIsPaused(!isPaused);
-    params.sendTime(time)
+    params.sendTime(time)    
   };
   const handleReset = () => {
     setIsActive(false);
@@ -41,7 +48,6 @@ function StopWatch(params) {
     setLaps([0])
   };
   const handleLap = () => {
-    console.log("lap")
     const lapsSum = laps.reduce((result, number) => result + number);
     let newLap = time - lapsSum
     console.log(newLap)
@@ -55,6 +61,10 @@ function StopWatch(params) {
 
   return (
     <div className="stop-watch">
+      <div className="white">
+        {params.active ? "active" : "not active"}
+
+      </div>
       <Timer time={time} />
       <ControlButtons
         active={isActive}
@@ -66,7 +76,7 @@ function StopWatch(params) {
       />
       <div className="laps">
         {laps.map(function (time, index) {
-          return (<div >Lap {index} : { millisToMinutesAndSeconds(time)}</div>)
+          return (<div key={index}>Lap {index} : {millisToMinutesAndSeconds(time)}</div>)
         })}
       </div>
     </div>
