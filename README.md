@@ -1,20 +1,21 @@
 ## Line study app initial skeleton
 *update this readme as project is developed"
 
-## Todo
+### Actions:
 
+- create events list
+	- timestamp events start properly
+	- calculate stop time and duration logic
+	- make all entries editable
+	- make event tags apear as dropdown for easy tagging
+- complete stopwatch functionality
+	- start line study on stopwatch start
+	- add lap functionality
 
-- Stopwatch functionality
-	- timestamp events
-	- logic for line study details
-- line study details export info to .xlsx properly 
-	- some fields auto populate from stopwatch
-- event status display 
-	- up/down/idle + current speed
-- event status control
-	- Button press will add new event and can change status
-	- buttons (Up/Down, Idle, Speed change, add note)
-
+- Design layout better
+	- ensure proper scaling and grid layout of all compoenents
+	- make components collapsable
+	- use Stroud colours
 
 
 ### plan 
@@ -64,18 +65,6 @@ Plan:
 	- .xlsx file that can be copied into Stroud line study excel template
 	- ideally something better
 
-
-
-### Actions:
-
-- create events list
- - timestamp events start properly
- - calculate stop time and duration logic
- - make all entries editable
- - make event tags apear as dropdown for easy tagging
-- complete stopwatch functionality
- - start line study on stopwatch start
- - add lap functionality
 
 
 ## Problem Definition:

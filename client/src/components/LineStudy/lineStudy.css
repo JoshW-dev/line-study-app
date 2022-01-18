@@ -1,4 +1,4 @@
-.line-study-wrapper{
+.line-study-grid-wrapper{
     background-color: navy;
     display: grid;
     grid-template-columns: repeat( auto-fill, 300px); 

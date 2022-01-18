@@ -4,6 +4,7 @@ import { Button, Input, Statistic, notification } from 'antd';
 import Stopwatch from '../StopWatch/StopWatch';
 import Download from '../Download/Download';
 import EventButtons from '../EventButtons/eventButtons'
+import EventsTable from '../eventsTable/eventsTable'
 
 function LineStudy() {
     const [stopwatchTime, setStopwatchTime] = useState(0)
@@ -98,13 +99,17 @@ function LineStudy() {
     }
     return (
         <div className="line-study-wrapper">
+
+        <div className="line-study-grid-wrapper">
+
             <div className='line-study-component'>
                 <h3>Project Details</h3>
                 <Input className="input" bordered={false} name="user" placeholder="User Name" onChange={updateInputState} />
                 <Input className="input" bordered={false} name="project" placeholder="Project Name" onChange={updateInputState} />
                 <Input className="input" bordered={false} name="location" placeholder="Location" onChange={updateInputState} />
             </div>
-            <div className='line-study-component'>Line Study Info
+            <div className='line-study-component'>
+                <h3>Line Study Info</h3>
                 <Input className="input" bordered={false} name="lineStudyTitle" placeholder="Line Study title" onChange={updateInputState} />
                 <Input className="input" bordered={false} name="processName" placeholder="Process Name" onChange={updateInputState} />
                 <Input className="input" bordered={false} name="product" placeholder="Product run" onChange={updateInputState} />
@@ -120,6 +125,7 @@ function LineStudy() {
 
             {/* event tag entry */}
             <div className='line-study-component'>
+                <h3>Event Tags</h3>
                 <Input className="input" bordered={false} name="newTag" placeholder="New event tag" value={inputs.newTag} onChange={updateInputState} />
                 <Button onClick={onClickTags} type="primary">Add</Button>
                 {/* data list */}
@@ -154,10 +160,14 @@ function LineStudy() {
             </div>
             <div>
             <Button onClick={testFunction}>Do thing</Button>
-            <Download apiData={apiData} inputs={inputs} fileName={fileName} />
-
             </div>
+                    
         </div>
+        <EventsTable/>
+        <Download apiData={apiData} inputs={inputs} fileName={fileName} />
+            
+        </div>
+
     )
 }
 export default LineStudy
