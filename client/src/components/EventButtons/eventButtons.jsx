@@ -9,23 +9,31 @@ function EventButtons(params) {
         let type = e.target.innerHTML //ideally change to use button id here instead of button text
         if (type !== "Speed Change") {
             console.log(type)
+            setStatus(type)
             setNewSpeed(params.currentStatus.speed)
+            params.sendProcessStatus({ state: type, speed: params.currentStatus.speed })
+            //if process is marked down or idle, speed is effectively 0
+            //ensure this is accounted for in logic later on
         } else {
             console.log(type)
             console.log(newSpeed)
+            params.sendProcessStatus({ state: "Up", speed: newSpeed})
         }
-        params.sendProcessStatus(status)
     }
     const updateSpeed = (e) => {
         let { value } = e.target
         setNewSpeed(value)
     }
+    const createEvent =()=>{
+        params.addEvent("event")
+    }
+
+
 
     return (
         <div className="event-buttons-wrapper">
-            {status}
-            {newSpeed}
-
+            {params.status}
+            
             <Button onClick={handleUpdateStatus} >Up</Button>
             <Button onClick={handleUpdateStatus} >Down</Button>
             <Button onClick={handleUpdateStatus} >Idle</Button>

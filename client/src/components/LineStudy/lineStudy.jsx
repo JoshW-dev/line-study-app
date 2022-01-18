@@ -19,6 +19,14 @@ function LineStudy() {
     const [status, setStatus] = useState({ state: "Up", speed: 20 })
     //status includes current state of process (up/down/idle) and current speed
     const [tags, setTags] = useState([])
+    const [events, setEvents] = useState([{
+        type: "up",
+        start: 0,
+        end: 0,
+        duration: 0,
+        tag: "init",
+        notes: "lorem ipsum"
+    }])
     const [fileName, setFileName] = useState("testExcelFile")
     const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
 
@@ -33,7 +41,11 @@ function LineStudy() {
     var onClickTags = () => {
         setTags([...tags, inputs.newTag]);
     }
+    var addEvent = (newElement) => {
+        console.log(newElement)
+        //setEvents(oldArray => [...oldArray, newElement]);
 
+    }
     const getStopWatchTime = (time) => {
         console.log("Get stopwatch data")
         console.log(time)
@@ -100,7 +112,11 @@ function LineStudy() {
             </div>
             <Stopwatch sendTime={getStopWatchTime} />
             <div className='line-study-component'>
-                <EventButtons currentStatus ={status} sendProcessStatus = {getProcessStatus}/>
+                <EventButtons
+                    status={events[events.length - 1]}
+                    currentStatus={status}
+                    sendProcessStatus={getProcessStatus}
+                    addEvent={addEvent} />
             </div>
 
             {/* data entry */}
