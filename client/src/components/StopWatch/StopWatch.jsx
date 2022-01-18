@@ -38,7 +38,7 @@ function StopWatch(params) {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
-    setLaps([])
+    setLaps([0])
   };
   const handleLap = () => {
     console.log("lap")
@@ -47,6 +47,12 @@ function StopWatch(params) {
     console.log(newLap)
     setLaps([...laps, newLap]);
   };
+  const millisToMinutesAndSeconds = (millis) => {
+    let minutes = Math.floor(millis / 60000);
+    let seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds + "." + millis % 1000;
+  };
+
   return (
     <div className="stop-watch">
       <Timer time={time} />
@@ -60,7 +66,7 @@ function StopWatch(params) {
       />
       <div className="laps">
         {laps.map(function (time, index) {
-          return (<div >Lap {index} : {time}</div>)
+          return (<div >Lap {index} : { millisToMinutesAndSeconds(time)}</div>)
         })}
       </div>
     </div>

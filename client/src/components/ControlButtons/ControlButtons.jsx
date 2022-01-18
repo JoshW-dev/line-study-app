@@ -26,11 +26,11 @@ export default function ControlButtons(props) {
     <div className="btn-grp">
       <div className="btn btn-one"
         onClick={props.handlePauseResume}>
-        Stop
+        Pause
       </div>
       <div className="btn btn-two"
         onClick={props.handleLap}>
-        Lap
+        Lap 
       </div>
 
     </div>
