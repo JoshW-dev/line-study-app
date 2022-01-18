@@ -10,3 +10,12 @@
 .stop-watch-wrapper{
     background-color: navy;
 }
+.laps{
+    color: azure;
+    height: 50%;
+    width: 100%;
+    overflow-y: scroll;
+    justify-content: left;
+    align-items: left;
+    
+}
