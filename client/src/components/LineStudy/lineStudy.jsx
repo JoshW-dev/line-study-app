@@ -24,6 +24,7 @@ function LineStudy() {
         start: 0,
         end: 0,
         duration: 0,
+        speed: 0,
         tag: "init",
         notes: "lorem ipsum"
     }])
@@ -41,9 +42,23 @@ function LineStudy() {
     var onClickTags = () => {
         setTags([...tags, inputs.newTag]);
     }
-    var addEvent = (newElement) => {
-        console.log(newElement)
-        //setEvents(oldArray => [...oldArray, newElement]);
+    var addEvent = (type, newSpeed) => {
+        console.log(type)
+        console.log(newSpeed)
+       let newEvent = {
+            type: type,
+            //get start time from stopwatch
+            start: 0,
+            //get end time and duration from previous event 
+            end: 0,
+            duration: 0,
+            //update with newspeed every time (should be unchanged if speed doesnt change)
+            speed: newSpeed,
+            //allow this to be editable when listed
+            tag: "init",
+            notes: "lorem ipsum"
+        }
+        setEvents(oldArray => [...oldArray, newEvent]);
 
     }
     const getStopWatchTime = (time) => {
@@ -54,7 +69,11 @@ function LineStudy() {
     const getProcessStatus = (data) => {
         console.log(data)
     }
-
+    const testFunction = ()=>{
+        console.log("test button")
+        console.log(events[events.length-1])
+        
+    }
     var timerToggle = (e) => {
         console.log(this.state)
         this.setState({ timerToggle: !this.state.timerToggle })
@@ -113,7 +132,7 @@ function LineStudy() {
             <Stopwatch sendTime={getStopWatchTime} />
             <div className='line-study-component'>
                 <EventButtons
-                    status={events[events.length - 1]}
+                    lastEvent = {events[events.length-1]}
                     currentStatus={status}
                     sendProcessStatus={getProcessStatus}
                     addEvent={addEvent} />
@@ -133,7 +152,11 @@ function LineStudy() {
             <div className='line-study-component'>
                 <p>{stopwatchTime}</p>
             </div>
+            <div>
+            <Button onClick={testFunction}>Do thing</Button>
             <Download apiData={apiData} inputs={inputs} fileName={fileName} />
+
+            </div>
         </div>
     )
 }
