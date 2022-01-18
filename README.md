@@ -68,14 +68,14 @@ Plan:
 
 ### Actions:
 
-- Figure out problems associted to running line studies and using data internally and with clients.
-	- talk to james and alison about tactical side (internal only)
-	- talk to phil about how line studies generate value on a larger scale (internal and client use)
-	- mark/elena (external selling)
-
-- Gather list of issues and opportunities for improving the line study experience
-- Figure out value of solving this problem
-- Determine focus on interval vs. external
+- create events list
+ - timestamp events start properly
+ - calculate stop time and duration logic
+ - make all entries editable
+ - make event tags apear as dropdown for easy tagging
+- complete stopwatch functionality
+ - start line study on stopwatch start
+ - add lap functionality
 
 
 ## Problem Definition:
