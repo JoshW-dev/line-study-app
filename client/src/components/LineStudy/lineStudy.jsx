@@ -32,6 +32,10 @@ function LineStudy() {
     const [apiData, setApiData] = useState([{ userId: "test id", title: "test title" }])
     var onClickTags = () => {
         setTags([...tags, inputs.newTag]);
+        setInputs(prevState => ({
+            ...prevState,
+            newTag: ""
+        }))
     }
     const getTime = React.useRef(null)
 
@@ -42,7 +46,7 @@ function LineStudy() {
         let newEvent = {
             type: type,
             //get start time from lineStudyStartTime vs now (ms)
-            start: Date.now()-inputs.lineStudyStartTime,
+            start: Date.now() - inputs.lineStudyStartTime,
             //get end time and duration from previous event 
             end: 0,
             duration: 0,
@@ -115,7 +119,6 @@ function LineStudy() {
                     {isActive ?
                         <Button onClick={endStudy}>End Line Study</Button> : null
                     }
-
                 </div>
                 <div className='line-study-component'>
                     <h3>Line Study Info</h3>
@@ -130,7 +133,6 @@ function LineStudy() {
                     <Input className="input" bordered={false} name="unitEndCount" placeholder="Unit End Count" onChange={updateInputState} />
                     <Input className="input" bordered={false} name="unitWaste" placeholder="Unit Waste" onChange={updateInputState} />
                 </div>
-
                 {/* event tag entry */}
                 <div className='line-study-component'>
                     <h3>Event Tags</h3>
@@ -138,8 +140,8 @@ function LineStudy() {
                     <Button onClick={onClickTags} type="primary">Add</Button>
                     {/* data list */}
                     <div className='data-list-wrapper'>
-                        {tags.map(function (d) {
-                            return (<li>{d}</li>)
+                        {tags.map(function (d, index) {
+                            return (<li key={index}>{d}</li>)
                         })}
                     </div>
                 </div>
@@ -155,15 +157,12 @@ function LineStudy() {
                         currentStatus={status}
                         addEvent={addEvent} />
                 </div>
-
                 <div>
                     <Button onClick={testFunction}>Do thing</Button>
                 </div>
-
             </div>
             <EventsTable events={events} />
             <Download apiData={apiData} inputs={inputs} fileName={fileName} />
-
         </div>
 
     )

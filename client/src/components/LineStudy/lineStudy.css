@@ -8,7 +8,9 @@
     column-gap: 1.6em;
   }
   .line-study-component{
-    min-height: 10vh;
+    
+    /* min-height: 10vh;
+     */
     min-width: 250px;
     background-color: #ffce47;
   }
