@@ -19,7 +19,6 @@
 	- make components collapsable
 	- use Stroud colours
 
-
 ### plan 
 Dec 26 2021
 
@@ -93,6 +92,43 @@ Plan:
 	- what would make running line studies easier
 	- what would make training to use line studies easier
 
+### Visual Review Notes
+Proto.io review of intended functionality complete on Jan 21, 2022
+
+- [Proto.io visual draft](https://pr.to/YQ0YHA/)
+
+Proto.io free trial ends soon, PDF of screens stored in drive
+
+#### Feedback Notes:
+
+- Allow line study start without filling in any line study/project info
+- Key Info (must be filled in to start)
+	- Start Count
+	- Starting Speed
+- Aim to design buttons on bottom half of screen for easy access if using phone
+- Start and end times should be fully automatic, allow users to change in excel if they want
+- Track speed at every single event and include in excel output
+- For output excel sheet format down/idle column to include all reasons (down/idle/speed change/note/pause/start)
+- Make line study and project info all one component
+- Make info component collapsable
+	- Hide by default
+- Add "end study" button before letting users export to excel
+- Combine stopwatch, display, buttonsinto one component
+- Record all pause/play and lap data as regular events
+- Add Note/mark time event
+- Timestamp all events
+
+- Data Security
+	- Ensure users cannot add excel formulas with input
+	- Put in character limit
+	- Clean any inputs before export
+	- Cut any excel key characrters (=, +, -, etc.)
+
+
+
+
+
+
 
 ### Key Internal Issues
 1. fast events are difficult to track and provide good timestamp
@@ -100,6 +136,8 @@ Plan:
 3. Written notes can have inconsistent naming and formatting convensions 
 4. Transcribing data from paper is annoying and time consuming
 5. Transitioning paper notes is bad
+
+
 
 
 ### Done
